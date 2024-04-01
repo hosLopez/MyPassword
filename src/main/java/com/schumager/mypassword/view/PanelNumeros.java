@@ -27,38 +27,37 @@ public class PanelNumeros extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        button7 = new javax.swing.JButton();
+        button8 = new javax.swing.JButton();
+        button9 = new javax.swing.JButton();
+        button4 = new javax.swing.JButton();
+        button5 = new javax.swing.JButton();
+        button6 = new javax.swing.JButton();
+        button1 = new javax.swing.JButton();
+        button2 = new javax.swing.JButton();
+        button3 = new javax.swing.JButton();
+        buttonClear = new javax.swing.JButton();
+        button0 = new javax.swing.JButton();
+        buttonIntro = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPasswordField1.setEditable(false);
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setText("jPassw");
+        passwordField.setEditable(false);
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        passwordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+            .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -66,164 +65,203 @@ public class PanelNumeros extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.GridLayout(4, 3, 5, 5));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton1.setText("7");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        button7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button7.setText("7");
+        button7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                button7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1);
+        jPanel2.add(button7);
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton2.setText("8");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        button8.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button8.setText("8");
+        button8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                button8ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2);
+        jPanel2.add(button8);
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton3.setText("9");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        button9.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button9.setText("9");
+        button9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                button9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3);
+        jPanel2.add(button9);
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton4.setText("4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        button4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button4.setText("4");
+        button4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                button4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4);
+        jPanel2.add(button4);
 
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton9.setText("5");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        button5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button5.setText("5");
+        button5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                button5ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton9);
+        jPanel2.add(button5);
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton5.setText("6");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        button6.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button6.setText("6");
+        button6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                button6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton5);
+        jPanel2.add(button6);
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton7.setText("1");
-        jPanel2.add(jButton7);
-
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton10.setText("2");
-        jPanel2.add(jButton10);
-
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton8.setText("3");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        button1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button1.setText("1");
+        button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                button1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton8);
+        jPanel2.add(button1);
 
-        jButton12.setBackground(new java.awt.Color(255, 0, 51));
-        jButton12.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setText("CLEAR");
-        jButton12.setBorderPainted(false);
-        jButton12.setMargin(new java.awt.Insets(2, 5, 3, 5));
-        jButton12.setOpaque(true);
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        button2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button2.setText("2");
+        button2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                button2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton12);
+        jPanel2.add(button2);
 
-        jButton14.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton14.setText("0");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        button3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button3.setText("3");
+        button3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                button3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton14);
+        jPanel2.add(button3);
 
-        jButton15.setBackground(new java.awt.Color(0, 204, 51));
-        jButton15.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton15.setForeground(new java.awt.Color(255, 255, 255));
-        jButton15.setText("INTRO");
-        jButton15.setBorderPainted(false);
-        jButton15.setMargin(new java.awt.Insets(2, 5, 3, 5));
-        jButton15.setOpaque(true);
-        jPanel2.add(jButton15);
+        buttonClear.setBackground(new java.awt.Color(255, 0, 51));
+        buttonClear.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        buttonClear.setForeground(new java.awt.Color(255, 255, 255));
+        buttonClear.setText("CLEAR");
+        buttonClear.setBorderPainted(false);
+        buttonClear.setMargin(new java.awt.Insets(2, 5, 3, 5));
+        buttonClear.setOpaque(true);
+        buttonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonClearActionPerformed(evt);
+            }
+        });
+        jPanel2.add(buttonClear);
+
+        button0.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button0.setText("0");
+        button0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button0ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(button0);
+
+        buttonIntro.setBackground(new java.awt.Color(0, 204, 51));
+        buttonIntro.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        buttonIntro.setForeground(new java.awt.Color(255, 255, 255));
+        buttonIntro.setText("INTRO");
+        buttonIntro.setBorderPainted(false);
+        buttonIntro.setMargin(new java.awt.Insets(2, 5, 3, 5));
+        buttonIntro.setOpaque(true);
+        buttonIntro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonIntroActionPerformed(evt);
+            }
+        });
+        jPanel2.add(buttonIntro);
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"7");
+    }//GEN-LAST:event_button7ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void buttonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+        passwordField.setText("");
+    }//GEN-LAST:event_buttonClearActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void button0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button0ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"0");
+    }//GEN-LAST:event_button0ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"3");
+    }//GEN-LAST:event_button3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"6");
+    }//GEN-LAST:event_button6ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"4");
+    }//GEN-LAST:event_button4ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"5");
+    }//GEN-LAST:event_button5ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"8");
+    }//GEN-LAST:event_button8ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"9");
+    }//GEN-LAST:event_button9ActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:        
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"1");
+    }//GEN-LAST:event_button1ActionPerformed
+
+    private void buttonIntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIntroActionPerformed
+        // TODO add your handling code here:
+        System.out.println(passwordField.getPassword());
+    }//GEN-LAST:event_buttonIntroActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        // TODO add your handling code here:
+        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"2");
+    }//GEN-LAST:event_button2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton button0;
+    private javax.swing.JButton button1;
+    private javax.swing.JButton button2;
+    private javax.swing.JButton button3;
+    private javax.swing.JButton button4;
+    private javax.swing.JButton button5;
+    private javax.swing.JButton button6;
+    private javax.swing.JButton button7;
+    private javax.swing.JButton button8;
+    private javax.swing.JButton button9;
+    private javax.swing.JButton buttonClear;
+    private javax.swing.JButton buttonIntro;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField passwordField;
     // End of variables declaration//GEN-END:variables
 }

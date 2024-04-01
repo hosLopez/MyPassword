@@ -7,6 +7,7 @@ package com.schumager.mypassword.view.components;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.beans.BeanProperty;
+import javax.swing.TransferHandler;
 import javax.swing.border.Border;
 
 /**
@@ -255,7 +256,7 @@ public class TextField extends javax.swing.JTextField implements TextFieldInterf
                    textPassword = new StringBuilder();
                    textPassword.append(text);
                    if(!isPasswordVisible()){
-                       super.setText("*******");
+                       super.setText(asterisco(text));
                    }
                 }
                                
@@ -337,16 +338,36 @@ public class TextField extends javax.swing.JTextField implements TextFieldInterf
                this.setText(this.getText());
            }
            else{
-               String asterisco="";
-               for(int i = 0;  i<this.getText().length();i++){
-                   asterisco +="*";
-               }
-               this.setText(asterisco);
+              String text = this.getText();
+              /*System.err.println(text);
+              textPassword = new StringBuilder();
+              textPassword.append(text);*/
+              super.setText(asterisco(text));
            }
 
-           }
+    }
      
-    } 
+    }
+    private String asterisco(String text){
+        String asterisco="";
+        for(int i = 0;  i<this.getText().length();i++){
+                   asterisco +="*";
+        }
+        return asterisco;
+    }
+  /*  @Override
+    public void paste() {
+
+        if (isEditable() && isEnabled()) {
+            //invokeAction("paste", TransferHandler.getPasteAction());
+           // System.out.println("com.schumager.mypassword.view.components.TextField.paste()");
+           super.paste();
+           if(tipoDeCarecteres==TextField.PASSWORD){
+               this.setText(super.getText());
+           }
+        }
+        
+    }*/
  
     int tipoDeCarecteres;
     int cantidad;

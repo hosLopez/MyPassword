@@ -427,7 +427,7 @@ public class PanelRegistro2 extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonInsertarActionPerformed
 
     private void buttonEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEjecutarActionPerformed
-      EjecutarBoot.ingresar(registro);
+      JOptionPane.showMessageDialog(this, textFieldPassword.getText());
     }//GEN-LAST:event_buttonEjecutarActionPerformed
 
     public boolean isResgistro(){
