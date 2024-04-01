@@ -6,8 +6,12 @@ package com.schumager.mypassword.view.components;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.MouseListener;
 import javax.swing.Action;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -93,9 +97,19 @@ public class TextFieldLabel extends javax.swing.JPanel implements TextFieldInter
             if(!textField.getText().equals("")){
                 setPasswordVisible(!textField.isPasswordVisible());
             }
-            
-            
+            return;
         }
+        
+        if(!this.getText().equals("")){
+            String copy  = this.getText();
+            StringSelection copySelecction = new StringSelection(copy);
+            Toolkit tool = Toolkit.getDefaultToolkit();
+            Clipboard clip = tool.getSystemClipboard();
+            clip.setContents(copySelecction,null);
+
+            JOptionPane.showMessageDialog(this,copy);
+        }
+        
     }//GEN-LAST:event_labelMouseClicked
 
     

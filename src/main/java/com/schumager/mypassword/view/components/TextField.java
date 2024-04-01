@@ -254,10 +254,14 @@ public class TextField extends javax.swing.JTextField implements TextFieldInterf
                 else{
                    textPassword = new StringBuilder();
                    textPassword.append(text);
+                   if(!isPasswordVisible()){
+                       super.setText("*******");
+                   }
                 }
-                
+                               
                 
             }
+
             this.setForeground(Color.BLACK);
         }
 
@@ -342,8 +346,8 @@ public class TextField extends javax.swing.JTextField implements TextFieldInterf
 
            }
      
-    }       
-    
+    } 
+ 
     int tipoDeCarecteres;
     int cantidad;
     Color colorTitle;
