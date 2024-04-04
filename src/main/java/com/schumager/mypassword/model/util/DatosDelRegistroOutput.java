@@ -6,7 +6,9 @@ package com.schumager.mypassword.model.util;
 
 import com.schumager.mypassword.model.DatosDelRegistro;
 import com.schumager.mypassword.view.table.TableRegistro;
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
@@ -22,9 +24,12 @@ public class DatosDelRegistroOutput {
        
    }
  
-   public void  abrir()throws IOException{
-       file = new FileOutputStream("lista.ecs");
-       outPut = new ObjectOutputStream(file);
+   public void  abrir(File file)throws IOException{
+       FileWriter fileWriter = new FileWriter(file+".ecs");
+       
+       this.file = new FileOutputStream(file+".ecs");
+       
+       outPut = new ObjectOutputStream(this.file);
    }
    public void cerrar () throws IOException{
        if(outPut!=null){

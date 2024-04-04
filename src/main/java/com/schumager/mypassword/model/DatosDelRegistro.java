@@ -14,14 +14,24 @@ import java.util.List;
  * @author Schumager
  */
 public class DatosDelRegistro implements Serializable{
-    static int codigo;
-    static boolean nuevo;
-    static boolean guardar;
-    List<Registro>  lista;
-    
+    private char []codigo;
+    private static boolean nuevo;
+    private static boolean guardar;
+    private static char []codigoClase;
+    private  List<Registro>  lista;
+    //private int entero;
     public DatosDelRegistro(){
-        codigo = 0;
+        /*codigo = null;
+        nuevo = false;
+        guardar = false;*/
+        codigo = null;
         lista = new ArrayList<>();
+    }
+     public static void nuevo() {
+        codigoClase = null;
+        nuevo = false;
+        guardar = false;
+        
     }
     public void addRegistro(Registro r){
         lista.add(r);
@@ -30,12 +40,12 @@ public class DatosDelRegistro implements Serializable{
         return lista.get(index);
     }
 
-    public int getCodigo() {
-        return codigo;
+    public static char [] getCodigoClase() {
+        return codigoClase;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public static  void setCodigoClase(char []codigo) {
+        DatosDelRegistro.codigoClase = codigo;
     }
 
     public List<Registro> getLista() {
@@ -61,6 +71,16 @@ public class DatosDelRegistro implements Serializable{
     public static void setGuardar(boolean guardar) {
         DatosDelRegistro.guardar = guardar;
     }
+
+    public char[] getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(char[] codigo) {
+        this.codigo = codigo;
+    }
+    
+    
     
     
     

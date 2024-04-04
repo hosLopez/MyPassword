@@ -6,6 +6,7 @@ package com.schumager.mypassword.model.util;
 
 import com.schumager.mypassword.model.DatosDelRegistro;
 import com.schumager.mypassword.view.table.TableRegistro;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -21,9 +22,9 @@ public class DatosDelRegistroInput {
     public DatosDelRegistroInput(){
         
     }
-    public void abrir()throws IOException{
-        file = new FileInputStream("lista.ecs");
-        input = new ObjectInputStream(file) ;
+    public void abrir(File file)throws IOException{
+        this.file = new FileInputStream(file);
+        input = new ObjectInputStream(this.file) ;
         
     }
     public void cerra()throws IOException{
@@ -35,6 +36,7 @@ public class DatosDelRegistroInput {
         DatosDelRegistro dr = null;
         if(input!=null){
              dr = (DatosDelRegistro)input.readObject();
+             DatosDelRegistro.setCodigoClase(dr.getCodigo());
         }
         return dr;
     }

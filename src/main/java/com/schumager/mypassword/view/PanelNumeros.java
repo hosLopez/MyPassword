@@ -4,6 +4,9 @@
  */
 package com.schumager.mypassword.view;
 
+import com.schumager.mypassword.model.DatosDelRegistro;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Schumager
@@ -26,6 +29,8 @@ public class PanelNumeros extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        labelMensaje = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         passwordField = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
@@ -39,13 +44,37 @@ public class PanelNumeros extends javax.swing.JPanel {
         button2 = new javax.swing.JButton();
         button3 = new javax.swing.JButton();
         buttonClear = new javax.swing.JButton();
-        button0 = new javax.swing.JButton();
         buttonIntro = new javax.swing.JButton();
+        button0 = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        labelMensaje.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        labelMensaje.setForeground(new java.awt.Color(255, 51, 102));
+        labelMensaje.setText("Mensaje");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(labelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
         passwordField.setEditable(false);
-        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
         passwordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -56,9 +85,7 @@ public class PanelNumeros extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(passwordField)
         );
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -160,15 +187,6 @@ public class PanelNumeros extends javax.swing.JPanel {
         });
         jPanel2.add(buttonClear);
 
-        button0.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        button0.setText("0");
-        button0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button0ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(button0);
-
         buttonIntro.setBackground(new java.awt.Color(0, 204, 51));
         buttonIntro.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         buttonIntro.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,19 +194,26 @@ public class PanelNumeros extends javax.swing.JPanel {
         buttonIntro.setBorderPainted(false);
         buttonIntro.setMargin(new java.awt.Insets(2, 5, 3, 5));
         buttonIntro.setOpaque(true);
-        buttonIntro.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.add(buttonIntro);
+
+        button0.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        button0.setText("C");
+        button0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonIntroActionPerformed(evt);
+                button0ActionPerformed(evt);
             }
         });
-        jPanel2.add(buttonIntro);
+        jPanel2.add(button0);
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"7");
+        if(passwordField.getPassword().length<6)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"7");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button7ActionPerformed
 
     private void buttonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClearActionPerformed
@@ -198,54 +223,96 @@ public class PanelNumeros extends javax.swing.JPanel {
 
     private void button0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button0ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"0");
+         if(passwordField.getPassword().length>0){
+             char []charPass = passwordField.getPassword();
+             String password = new String(charPass, 0, charPass.length-1);
+             passwordField.setText(password);
+         }
+         else
+            getToolkit().beep();
+
     }//GEN-LAST:event_button0ActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"3");
+         if(passwordField.getPassword().length<max)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"3");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button3ActionPerformed
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"6");
+         if(passwordField.getPassword().length<max)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"6");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button6ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"4");
+         if(passwordField.getPassword().length<max)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"4");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button4ActionPerformed
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"5");
+         if(passwordField.getPassword().length<max)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"5");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button5ActionPerformed
 
     private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"8");
+        if(passwordField.getPassword().length<max)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"8");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button8ActionPerformed
 
     private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"9");
+         if(passwordField.getPassword().length<max)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"9");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button9ActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:        
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"1");
+         if(passwordField.getPassword().length<max)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"1");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button1ActionPerformed
-
-    private void buttonIntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIntroActionPerformed
-        // TODO add your handling code here:
-        System.out.println(passwordField.getPassword());
-    }//GEN-LAST:event_buttonIntroActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         // TODO add your handling code here:
-        passwordField.setText(String.copyValueOf(passwordField.getPassword())+"2");
+         if(passwordField.getPassword().length<max)
+            passwordField.setText(String.copyValueOf(passwordField.getPassword())+"2");
+        else
+            getToolkit().beep();
     }//GEN-LAST:event_button2ActionPerformed
-
+    public void setMensaje(String mensaje){
+        labelMensaje.setText("<html>"+mensaje+"</html>");
+    }
+    public void addActionPermed(ActionListener action){
+        buttonIntro.addActionListener(action);
+    }
+    public char [] charPassword(){
+        /*    if(passwordField.getPassword().length>=min&&passwordField.getPassword().length<=max){
+            return passwordField.getPassword();
+        }
+        char[]character = new char[1];
+        character[0]= '1';
+        return character;*/
+        return passwordField.getPassword();
+    }
+    private byte min = 4;
+    private byte max = 6;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button0;
@@ -262,6 +329,8 @@ public class PanelNumeros extends javax.swing.JPanel {
     private javax.swing.JButton buttonIntro;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel labelMensaje;
     private javax.swing.JPasswordField passwordField;
     // End of variables declaration//GEN-END:variables
 }

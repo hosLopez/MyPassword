@@ -10,16 +10,27 @@ import com.schumager.mypassword.model.Registro;
 import com.schumager.mypassword.model.util.DatosDelRegistroInput;
 import com.schumager.mypassword.model.util.DatosDelRegistroOutput;
 import com.schumager.mypassword.model.util.EjecutarBoot;
+import com.schumager.mypassword.model.util.Util;
 import com.schumager.mypassword.view.components.TextFieldLabel;
 import java.awt.AWTException;
+import java.awt.CardLayout;
+import java.awt.Dialog;
+import java.awt.Frame;
 import java.awt.Robot;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -33,6 +44,13 @@ public class PanelRegistro2 extends javax.swing.JPanel {
     public PanelRegistro2() {
         initComponents();
         registro = new Registro();
+        panelInicio2.addAbrirActionPerformed((e)->{
+            buttonAbrirActionPerformed(e);
+        });
+        
+        panelInicio2.addNuevoActionPerformed((e)->{
+            nuevoActionPerformed(e);
+        });
     }
 
     /**
@@ -49,8 +67,8 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JToolBar.Separator();
         textFieldUrl = new com.schumager.mypassword.view.components.TextFieldLabel();
         jSeparator3 = new javax.swing.JToolBar.Separator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonAbrir = new javax.swing.JButton();
+        buttonGuardar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         jPanel2 = new javax.swing.JPanel();
@@ -72,7 +90,8 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         toggleButtonTab = new javax.swing.JToggleButton();
         toggleButtonBrowser = new javax.swing.JToggleButton();
         buttonLimpiar = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        panelCenter = new javax.swing.JPanel();
+        panelInicio2 = new com.schumager.mypassword.view.PanelInicio();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRegistro = new com.schumager.mypassword.view.table.TableRegistro();
         jPanel3 = new javax.swing.JPanel();
@@ -97,29 +116,29 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         jToolBar1.add(textFieldUrl);
         jToolBar1.add(jSeparator3);
 
-        jButton1.setText("Abrir");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonAbrir.setText("Abrir");
+        buttonAbrir.setFocusable(false);
+        buttonAbrir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonAbrir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonAbrirActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton1);
+        jToolBar1.add(buttonAbrir);
 
-        jButton2.setText("Guardar");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGuardar.setText("Guardar");
+        buttonGuardar.setFocusable(false);
+        buttonGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonGuardarActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton2);
+        jToolBar1.add(buttonGuardar);
 
-        jButton3.setText("Nuevo");
+        jButton3.setText("Inicio");
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -292,38 +311,27 @@ public class PanelRegistro2 extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonInsertar)
                     .addComponent(buttonEjecutar)
                     .addComponent(buttonLimpiar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelNumeros1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelNumeros1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, Short.MAX_VALUE))
         );
 
         add(jPanel2, java.awt.BorderLayout.WEST);
 
+        panelCenter.setLayout(new java.awt.CardLayout());
+        panelCenter.add(panelInicio2, "cardInicio");
+
         jScrollPane1.setViewportView(tableRegistro);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
-        );
+        panelCenter.add(jScrollPane1, "cardTabla");
 
-        add(jPanel4, java.awt.BorderLayout.CENTER);
+        add(panelCenter, java.awt.BorderLayout.CENTER);
 
         buttonFacebook.setText("Facebook");
         buttonFacebook.addActionListener(new java.awt.event.ActionListener() {
@@ -365,7 +373,7 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(379, Short.MAX_VALUE)
+                .addContainerGap(381, Short.MAX_VALUE)
                 .addComponent(buttonFacebook)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonGoogle)
@@ -427,7 +435,8 @@ public class PanelRegistro2 extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonInsertarActionPerformed
 
     private void buttonEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEjecutarActionPerformed
-      JOptionPane.showMessageDialog(this, textFieldPassword.getText());
+      
+        JOptionPane.showMessageDialog(this,new  String(DatosDelRegistro.getCodigoClase()));
     }//GEN-LAST:event_buttonEjecutarActionPerformed
 
     public boolean isResgistro(){
@@ -465,25 +474,112 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_toggleButtonUserActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAbrirActionPerformed
         // TODO add your handling code here:
         DatosDelRegistroInput ti = new DatosDelRegistroInput();
-        try {
-            ti.abrir();
-            
-            DatosDelRegistro dr = ti.leer();
-            tableRegistro.addListRegistro(dr.getLista());
-            ti.cerra();
-        } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(PanelRegistro2.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
+        JFileChooser fchooser = new JFileChooser(System.getProperty("user.dir","."));
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        FileFilter filter = new FileNameExtensionFilter("Extencion", "ecs");
+        fchooser.setAcceptAllFileFilterUsed(false);
+        fchooser.addChoosableFileFilter(filter);
+        
+         int estado = fchooser.showOpenDialog(this);
+         if(estado == JFileChooser.APPROVE_OPTION){
+            
+            try {
+                ti.abrir(fchooser.getSelectedFile());
+                DatosDelRegistro dr = ti.leer();
+                ti.cerra();
+  
+                Object o = (Object)this.getRootPane().getParent();
+                JDialog d;
+                if(o instanceof Dialog){
+                    d = new JDialog((Dialog)o); 
+                }
+                else if(o instanceof Frame){
+                    d = new JDialog((Frame)o);
+                }
+                else{
+                    d = new JDialog();
+                }
+                d.setTitle("Colocar un Codigo asta 6 digitos");
+                PanelNumeros pn = new PanelNumeros();
+                pn.setMensaje("Ingrese codigo para habrir el Archivo ");
+                //Acccin del Botton Intro
+                pn.addActionPermed((e) -> {
+                    if(Util.comparar(pn.charPassword(),dr.getCodigo())){
+                        d.setVisible(false);
+                        tableRegistro.addListRegistro(dr.getLista());
+                        CardLayout cardLayout = (CardLayout)panelCenter.getLayout();
+                        cardLayout.show(panelCenter, "cardTabla");  
+                    }
+                    else
+                        pn.setMensaje("Codigo incorrecto");
+                });
 
+                
+                d.add(pn);
+                d.setModal(true);
+                d.pack();
+                d.setLocationRelativeTo(null);
+                d.setVisible(true);
+                
+               
+                
+                
+                
+            } catch (IOException | ClassNotFoundException ex) {
+                Logger.getLogger(PanelRegistro2.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println("execiopn");
+            }
+         }
+        
+    }//GEN-LAST:event_buttonAbrirActionPerformed
+
+    private void nuevoActionPerformed(java.awt.event.ActionEvent evt){
+        
+        DatosDelRegistro.setNuevo(true);
+        DatosDelRegistro.setGuardar(true);
+        
+        Object o = (Object)this.getRootPane().getParent();
+        JDialog d;
+        if(o instanceof Dialog){
+            d = new JDialog((Dialog)o); 
+        }
+        else if(o instanceof Frame){
+            d = new JDialog((Frame)o);
+        }
+        else{
+            d = new JDialog();
+        }
+        d.setTitle("Colocar un Codigo asta 6 digitos");
+        PanelNumeros pn = new PanelNumeros();
+        pn.setMensaje("Ingrese nuevo codigo de  seguridad de 4 a 6 digitos. <p> ¡No olvide el codigo para abrir el archivo despues!");
+        pn.addActionPermed((e) -> {
+            if(pn.charPassword()!=null){
+                DatosDelRegistro.setCodigoClase(pn.charPassword());
+                d.setVisible(false);
+                JOptionPane.showMessageDialog(this,"Codigo Guardado Correctamente");
+                //PanelRegistro2 pr = (PanelRegistro2) this.getParent();
+                CardLayout cardLayout = (CardLayout)panelCenter.getLayout();
+                cardLayout.show(panelCenter, "cardTabla");
+            }
+        });
+        d.add(pn);
+        d.setModal(true);
+        d.pack();
+        d.setLocationRelativeTo(null);
+        d.setVisible(true);
+         
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         limpiar();
         tableRegistro.limpiar();
+        DatosDelRegistro.nuevo();
+        CardLayout cardLayout = (CardLayout)panelCenter.getLayout();
+        cardLayout.show(panelCenter,"cardInicio");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void buttonFacebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacebookActionPerformed
@@ -563,20 +659,43 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_toggleButtonBrowserActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarActionPerformed
         // TODO add your handling code here:
         DatosDelRegistroOutput tableOutput = new DatosDelRegistroOutput();
         DatosDelRegistro dr = new DatosDelRegistro();
         dr.setLista(tableRegistro.getList());
+        dr.setCodigo(DatosDelRegistro.getCodigoClase());
         
-        try {
+        JFileChooser fchooser = new JFileChooser(System.getProperty("user.dir","."));
+        fchooser.setAcceptAllFileFilterUsed(false);
+        
+        FileFilter filter = new FileNameExtensionFilter("Extencion", "ecs");
+        fchooser.addChoosableFileFilter(filter);
+       // fchooser.setSelectedFile(new File("lista.ecs"));
+        int estado = fchooser.showSaveDialog(this);            
+        if(estado == JFileChooser.APPROVE_OPTION){
+            try {
+                
+                fchooser.getName();
+                tableOutput.abrir(fchooser.getSelectedFile());
+                
+                tableOutput.guardar(dr);
+                tableOutput.cerrar();
+            } catch (IOException ex) {
+                Logger.getLogger(PanelRegistro2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        
+        /*try {
             tableOutput.abrir();
             tableOutput.guardar(dr);
             tableOutput.cerrar();
         } catch (IOException ex) {
             Logger.getLogger(PanelRegistro2.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
+        }*/
+    }//GEN-LAST:event_buttonGuardarActionPerformed
 
     private void buttonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLimpiarActionPerformed
         // TODO add your handling code here:
@@ -628,28 +747,29 @@ public class PanelRegistro2 extends javax.swing.JPanel {
     }
      Registro registro; 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAbrir;
     private javax.swing.JButton buttonBrowser;
     private javax.swing.JButton buttonEjecutar;
     private javax.swing.JButton buttonFacebook;
     private javax.swing.JButton buttonGoogle;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton buttonGuardar;
     private javax.swing.JButton buttonInsertar;
     private javax.swing.JButton buttonLimpiar;
     private javax.swing.JButton buttonTuCuate;
     private javax.swing.JButton buttonTwiter;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JPanel panelCenter;
+    private com.schumager.mypassword.view.PanelInicio panelInicio2;
     private com.schumager.mypassword.view.PanelNumeros panelNumeros1;
     private com.schumager.mypassword.view.table.TableRegistro tableRegistro;
     private com.schumager.mypassword.view.components.TextFieldLabel textFieldMail;
