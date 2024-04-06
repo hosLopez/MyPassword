@@ -51,12 +51,12 @@ public class RegistroComponent implements  Serializable{
         });
         
         buttonEliminar = new JButton ("Eliminar");
-        /*buttonEliminar.addActionListener(new ActionListener() {
+        buttonEliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buttonEliminarActionPerformed(e);
             }
-        });*/
+        });
         
         
         labelNombre = new JLabel();
@@ -104,9 +104,14 @@ public class RegistroComponent implements  Serializable{
         PanelRegistro2 pp = (PanelRegistro2) butttonEdit.getParent().getParent().getParent().getParent().getParent().getParent().getComponent(0);
         
         pp.loadComponets(registro);
+        butttonEdit.setFocusable(false);
     }
-      public void buttonEliminarActionPerformed(java.awt.event.ActionListener evt){
-        buttonEliminar.addActionListener( evt);
+      public void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt){
+        //buttonEliminar.addActionListener( evt);
+        PanelRegistro2 pp = (PanelRegistro2) buttonEliminar.getParent().getParent().getParent().getParent().getParent().getParent().getComponent(0);
+        buttonEliminar.setFocusable(false);
+        pp.getTableRegistro().remover(registro);
+        
     }
     
 

@@ -186,10 +186,18 @@ public class TextFieldLabel extends javax.swing.JPanel implements TextFieldInter
     }
     //@Override
     public void setEditable(boolean editable){
-        textField.setEditable(editable);
+        textField.setEnabled(editable);
+        //textField.setEditable(editable);
         label.setEnabled(editable);
         
     }
+    @Override
+    public void setEnabled(boolean enabled){
+      super.setEnabled(enabled);
+      textField.setEnabled(enabled);
+      label.setEnabled(enabled);
+    }
+            
    /* @Override
     public Color getBackground(){
         return this.getBackground();

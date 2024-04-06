@@ -120,6 +120,9 @@ public class ModelTableRegistro extends  AbstractTableModel implements TableMode
       RegistroComponent r = list.get(row);
                   
     }
+    public void delete(RegistroComponent rc){
+        list.remove(rc);
+    }
 
 
 }

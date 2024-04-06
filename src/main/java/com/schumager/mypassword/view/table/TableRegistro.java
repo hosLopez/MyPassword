@@ -78,23 +78,47 @@ public class TableRegistro extends javax.swing.JTable implements Serializable{
         rc.loadComponets(r);
         
         lista.add(rc);
-        rc.buttonEliminarActionPerformed(new ActionListener() {
+       /* rc.buttonEliminarActionPerformed(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                //lista.remove(rc);
                 remover(rc);
             }
 
-        });
+        });*/
         listSet.add(rc);
         this.setVisible(false);
         this.setVisible(true);
     }
     public void  remover(RegistroComponent rc){
-        lista.remove(rc);
+        //lista.remove(rc);
+        modelTableRegistro.delete(rc);
         this.setVisible(false);
         this.setVisible(true);
         
+    }
+    public void remover (Registro r){
+        System.out.println("inico size = "+lista.size());
+        System.out.println("id  Registro "+r.getId());
+        Iterator  iterator = lista.iterator();
+        while(iterator.hasNext()){
+            RegistroComponent rc = (RegistroComponent) iterator.next();
+            
+            if(r.getId().equals(rc.getRegistro().getId())){
+                System.out.println("id  Registro "+r.getId()+" id componente "+rc.getRegistro().getId());
+                remover(rc);
+                
+                return;
+            }
+        }
+        System.out.println("fin size = "+lista.size());
+        
+        /*for(RegistroComponent rc: lista){
+            if(rc.getRegistro().getId().equals(r.getId())){
+                System.out.println("Se elimino "+rc.getRegistro().getNombre());
+                remover(rc);
+            }
+        }*/
     }
     public void mostrar(){
         for(RegistroComponent rc:listSet){

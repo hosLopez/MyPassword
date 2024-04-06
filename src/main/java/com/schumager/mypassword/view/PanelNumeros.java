@@ -296,6 +296,25 @@ public class PanelNumeros extends javax.swing.JPanel {
         else
             getToolkit().beep();
     }//GEN-LAST:event_button2ActionPerformed
+    @Override
+    public void setEnabled(boolean enabled){
+        super.setEnabled(enabled);
+        button0.setEnabled(enabled);
+        button1.setEnabled(enabled);
+        button2.setEnabled(enabled);
+        button3.setEnabled(enabled);
+        button4.setEnabled(enabled);
+        button5.setEnabled(enabled);
+        button6.setEnabled(enabled);
+        button7.setEnabled(enabled);
+        button8.setEnabled(enabled);
+        button9.setEnabled(enabled);
+        
+        buttonIntro.setEnabled(enabled);
+        buttonClear.setEnabled(enabled);
+        
+        labelMensaje.setEnabled(enabled);
+    }
     public void setMensaje(String mensaje){
         labelMensaje.setText("<html>"+mensaje+"</html>");
     }
