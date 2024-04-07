@@ -21,6 +21,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 /**
@@ -41,6 +42,12 @@ public class TableRegistro extends javax.swing.JTable implements Serializable{
         lista  = new LinkedList<>();
         listSet = new HashSet<>();
         modelTableRegistro = new ModelTableRegistro(lista);
+        this.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+        
         this.setModel(modelTableRegistro); 
       
         this.setDefaultRenderer(JLabel.class,new RenderButtonTable());
@@ -87,18 +94,21 @@ public class TableRegistro extends javax.swing.JTable implements Serializable{
 
         });*/
         listSet.add(rc);
-        this.setVisible(false);
-        this.setVisible(true);
+        this.resizeAndRepaint();
+        /*this.setVisible(false);
+        this.setVisible(true);*/
     }
     public void  remover(RegistroComponent rc){
         //lista.remove(rc);
-        modelTableRegistro.delete(rc);
-        this.setVisible(false);
-        this.setVisible(true);
+        //modelTableRegistro.delete(rc);
+        lista.remove(rc);
+        this.resizeAndRepaint();
+       // this.setVisible(false);
+        //this.setVisible(true);
         
     }
     public void remover (Registro r){
-        System.out.println("inico size = "+lista.size());
+        System.out.println("lista size = "+lista.size()+" table filas "+this.getRowCount());
         System.out.println("id  Registro "+r.getId());
         Iterator  iterator = lista.iterator();
         while(iterator.hasNext()){
@@ -107,7 +117,6 @@ public class TableRegistro extends javax.swing.JTable implements Serializable{
             if(r.getId().equals(rc.getRegistro().getId())){
                 System.out.println("id  Registro "+r.getId()+" id componente "+rc.getRegistro().getId());
                 remover(rc);
-                
                 return;
             }
         }
@@ -195,17 +204,25 @@ public class TableRegistro extends javax.swing.JTable implements Serializable{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        System.out.println("fila selection "+this.getSelectedRow());
+        if(this.getSelectedColumn()==11){
+            if(JOptionPane.showConfirmDialog(this,"Esta seguro de Eliminar el registro")==JOptionPane.YES_OPTION){ 
+               lista.remove(this.getSelectedRow());
+               this.resizeAndRepaint();
+               
+            }
+        }
+
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

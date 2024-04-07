@@ -14,6 +14,7 @@ import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 /**
@@ -110,7 +111,15 @@ public class RegistroComponent implements  Serializable{
         //buttonEliminar.addActionListener( evt);
         PanelRegistro2 pp = (PanelRegistro2) buttonEliminar.getParent().getParent().getParent().getParent().getParent().getParent().getComponent(0);
         buttonEliminar.setFocusable(false);
-        pp.getTableRegistro().remover(registro);
+        //pp.getTableRegistro().remover(registro);
+       if(pp.getTableRegistro().getSelectedColumn()==11){
+            if(JOptionPane.showConfirmDialog(pp,"Esta seguro de Eliminar el registro")==JOptionPane.YES_OPTION){ 
+               pp.getTableRegistro().getLista().remove(pp.getTableRegistro().getSelectedRow());
+               pp.getTableRegistro().setVisible(false);
+               pp.getTableRegistro().setVisible(true);
+               
+            }
+        }
         
     }
     

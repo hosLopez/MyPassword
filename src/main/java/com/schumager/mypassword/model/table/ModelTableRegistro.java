@@ -36,15 +36,15 @@ public class ModelTableRegistro extends  AbstractTableModel implements TableMode
   
         switch(columnIndex){
             case 0:return rc.getButttonEdit();    
-            case 1:return rc.getLabelNombre();
-            case 2:return rc.getLabelMail();
-            case 3:return rc.getLabelUser();
-            case 4:return rc.getPasswordField();    
-            case 5:return rc.getCheckBoxMail();
-            case 6:return rc.getCheckBoxUser();
-            case 7:return rc.getCheckBoxEnter();
-            case 8:return rc.getCheckBoxPassword();    
-            case 9:return rc.getCheckBoxEnterDos();
+            case 1:return rc.getLabelNombre().getText();
+            case 2:return rc.getLabelMail().getText();
+            case 3:return rc.getLabelUser().getText();
+            case 4:return rc.getPasswordField().getPassword();    
+            case 5:return rc.getCheckBoxMail().isSelected();
+            case 6:return rc.getCheckBoxUser().isSelected();
+            case 7:return rc.getCheckBoxEnter().isSelected();
+            case 8:return rc.getCheckBoxPassword().isSelected();    
+            case 9:return rc.getCheckBoxEnterDos().isSelected();
             case 10:return rc.getButtonIngresar();
             case 11:return rc.getButtonEliminar();
 
@@ -109,7 +109,7 @@ public class ModelTableRegistro extends  AbstractTableModel implements TableMode
         @Override
     public boolean isCellEditable(int row, int col) {
         
-        return col ==0||col==1 ||col==2||col==3 || col ==4||col==5 ||col==6||col==7 || col ==8||col==9 ||col==10||col==11||col==12;
+        return col ==0||col==10||col==11||col==12;
     }
      @Override
     public void setValueAt(Object aValue, int row, int column) {
