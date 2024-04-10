@@ -71,11 +71,12 @@ public class TableRegistro extends javax.swing.JTable implements Serializable{
         this.getColumnModel().getColumn(2).setPreferredWidth(250);
         this.getColumnModel().getColumn(3).setPreferredWidth(150);
         this.getColumnModel().getColumn(4).setPreferredWidth(150);
-        this.getColumnModel().getColumn(5).setPreferredWidth(50);
-        this.getColumnModel().getColumn(6).setPreferredWidth(50);
-        this.getColumnModel().getColumn(7).setPreferredWidth(50);
-        this.getColumnModel().getColumn(8).setPreferredWidth(50);
-        this.getColumnModel().getColumn(9).setPreferredWidth(50);
+        this.getColumnModel().getColumn(5).setPreferredWidth(40);
+        this.getColumnModel().getColumn(6).setPreferredWidth(40);
+        this.getColumnModel().getColumn(7).setPreferredWidth(40);
+        this.getColumnModel().getColumn(8).setPreferredWidth(40);
+        this.getColumnModel().getColumn(9).setPreferredWidth(40);
+        this.getColumnModel().getColumn(10).setPreferredWidth(100);
         this.getColumnModel().getColumn(10).setPreferredWidth(100);
 
         

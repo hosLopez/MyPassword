@@ -96,12 +96,13 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         panelInicio2 = new com.schumager.mypassword.view.PanelInicio();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRegistro = new com.schumager.mypassword.view.table.TableRegistro();
-        jPanel3 = new javax.swing.JPanel();
+        PanelSur = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         buttonFacebook = new javax.swing.JButton();
         buttonGoogle = new javax.swing.JButton();
         buttonTwiter = new javax.swing.JButton();
         buttonTuCuate = new javax.swing.JButton();
-        buttonBrowser = new javax.swing.JButton();
+        panelEjecutarDirecto1 = new com.schumager.mypassword.view.PanelEjecutarDirecto();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -321,7 +322,7 @@ public class PanelRegistro2 extends javax.swing.JPanel {
                     .addComponent(buttonEjecutar)
                     .addComponent(buttonLimpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelNumeros1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, Short.MAX_VALUE))
+                .addComponent(panelNumeros1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, Short.MAX_VALUE))
         );
 
         add(jPanel2, java.awt.BorderLayout.WEST);
@@ -334,6 +335,8 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         panelCenter.add(jScrollPane1, "cardTabla");
 
         add(panelCenter, java.awt.BorderLayout.CENTER);
+
+        PanelSur.setLayout(new java.awt.BorderLayout());
 
         buttonFacebook.setText("Facebook");
         buttonFacebook.addActionListener(new java.awt.event.ActionListener() {
@@ -363,43 +366,36 @@ public class PanelRegistro2 extends javax.swing.JPanel {
             }
         });
 
-        buttonBrowser.setText("Browser");
-        buttonBrowser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonBrowserActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(381, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(buttonFacebook)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonGoogle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonTwiter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonTuCuate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonBrowser))
+                .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonFacebook)
                     .addComponent(buttonGoogle)
                     .addComponent(buttonTwiter)
-                    .addComponent(buttonTuCuate)
-                    .addComponent(buttonBrowser))
-                .addContainerGap())
+                    .addComponent(buttonTuCuate))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        add(jPanel3, java.awt.BorderLayout.SOUTH);
+        PanelSur.add(jPanel1, java.awt.BorderLayout.WEST);
+        PanelSur.add(panelEjecutarDirecto1, java.awt.BorderLayout.CENTER);
+
+        add(PanelSur, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertarActionPerformed
@@ -704,18 +700,6 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         toggleButtonEnter2.setSelected(true);
     }//GEN-LAST:event_buttonTuCuateActionPerformed
 
-    private void buttonBrowserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBrowserActionPerformed
-        /*try {
-            // TODO add your handling code here:
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + textFieldUrl.getText());
-
-        } catch (IOException ex) {
-            Logger.getLogger(PanelRegistro.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        tableRegistro.mostrar();
-        
-    }//GEN-LAST:event_buttonBrowserActionPerformed
-
     private void toggleButtonBrowserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButtonBrowserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toggleButtonBrowserActionPerformed
@@ -848,8 +832,8 @@ public class PanelRegistro2 extends javax.swing.JPanel {
     }
      Registro registro; 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelSur;
     private javax.swing.JButton buttonAbrir;
-    private javax.swing.JButton buttonBrowser;
     private javax.swing.JButton buttonEjecutar;
     private javax.swing.JButton buttonFacebook;
     private javax.swing.JButton buttonGoogle;
@@ -860,8 +844,8 @@ public class PanelRegistro2 extends javax.swing.JPanel {
     private javax.swing.JButton buttonLimpiar;
     private javax.swing.JButton buttonTuCuate;
     private javax.swing.JButton buttonTwiter;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
@@ -869,6 +853,7 @@ public class PanelRegistro2 extends javax.swing.JPanel {
     private javax.swing.JPanel panelCenter;
     private javax.swing.JPanel panelDeTextFields;
     private javax.swing.JPanel panelDeToggleButton;
+    private com.schumager.mypassword.view.PanelEjecutarDirecto panelEjecutarDirecto1;
     private com.schumager.mypassword.view.PanelInicio panelInicio2;
     private com.schumager.mypassword.view.PanelNumeros panelNumeros1;
     private com.schumager.mypassword.view.table.TableRegistro tableRegistro;
