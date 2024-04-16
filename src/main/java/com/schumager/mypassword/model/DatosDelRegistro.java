@@ -4,6 +4,7 @@
  */
 package com.schumager.mypassword.model;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,12 +15,15 @@ import java.util.List;
  * @author Schumager
  */
 public class DatosDelRegistro implements Serializable{
-    private char []codigo;
+    private static final long serialVersionUID = -3940762653214188725L;
     private static boolean nuevo;
     private static boolean guardar;
     private static char []codigoClase;
+    private static File direccion;
+
+    private char []codigo;    
     private  List<Registro>  lista;
-    //private int entero;
+    private int entero;
     public DatosDelRegistro(){
         /*codigo = null;
         nuevo = false;
@@ -71,6 +75,15 @@ public class DatosDelRegistro implements Serializable{
     public static void setGuardar(boolean guardar) {
         DatosDelRegistro.guardar = guardar;
     }
+
+    public static File getDireccion() {
+        return direccion;
+    }
+
+    public static void setDireccion(File direccion) {
+        DatosDelRegistro.direccion = direccion;
+    }
+    
 
     public char[] getCodigo() {
         return codigo;

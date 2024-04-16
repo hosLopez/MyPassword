@@ -425,7 +425,8 @@ public class PanelRegistro2 extends javax.swing.JPanel {
                 tableRegistro.update(registro);
                 JOptionPane.showMessageDialog(this,"Datos se actualizaron correctamente");
                 
-            }  
+            }
+            DatosDelRegistro.setGuardar(true);
                 
             
             
@@ -554,6 +555,8 @@ public class PanelRegistro2 extends javax.swing.JPanel {
         pn.addActionPermed((e) -> {
             if(pn.charPassword()!=null){
                 DatosDelRegistro.setCodigoClase(pn.charPassword());
+                DatosDelRegistro.setNuevo(true);
+               
                 d.setVisible(false);
                 JOptionPane.showMessageDialog(this,"Codigo Guardado Correctamente");
                 //PanelRegistro2 pr = (PanelRegistro2) this.getParent();
@@ -608,6 +611,7 @@ public class PanelRegistro2 extends javax.swing.JPanel {
                         tableRegistro.addListRegistro(dr.getLista());
                         CardLayout cardLayout = (CardLayout)panelCenter.getLayout();
                         cardLayout.show(panelCenter, "cardTabla");
+                        DatosDelRegistro.setDireccion(fchooser.getSelectedFile());
                         disable(true);
                     }
                     else
